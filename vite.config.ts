@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 
 export default defineConfig({
-  base: "/fatma-portfolio/", // تأكدي أن الاسم يطابق اسم المستودع على GitHub
+  base: './fatma-portfolio/', // 
   plugins: [react(), tailwindcss(), viteSingleFile()],
-  // ...
+  // ... بقية الكود
 });
