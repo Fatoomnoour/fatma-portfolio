@@ -8,10 +8,14 @@ import { viteSingleFile } from "vite-plugin-singlefile";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-
+// https://vite.dev/config/
 export default defineConfig({
-  base: './fatma-portfolio/', // 
-  plugins: [react(), tailwindcss(), viteSingleFile()],
-  // ... بقية الكود
+  // هذا السطر يضمن أن الروابط تعمل داخل مستودع fatma-portfolio
+  base: "/fatma-portfolio/", 
+  plugins: [react( ), tailwindcss(), viteSingleFile()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
 });

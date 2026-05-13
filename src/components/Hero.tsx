@@ -1,35 +1,42 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Sparkles, GraduationCap, Brain, Rocket } from 'lucide-react';
 
+// 1. استيراد صورة الخلفية برمجياً
+// هذا السطر يخبر Vite أن يعالج الصورة ويخصص لها مساراً صحيحاً عند النشر
+import heroBg from '../../public/images/hero-bg.jpg';
+
 export default function Hero() {
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background */}
+      {/* Background - قسم الخلفية */}
       <div className="absolute inset-0">
         <img
-          src="images/hero-bg.jpg"
+          src={heroBg} // 2. استخدام المتغير المستورد بدلاً من النص المباشر
           alt=""
           className="w-full h-full object-cover opacity-30"
         />
+        {/* طبقة تدرج لوني لجعل النص واضحاً فوق الصورة */}
         <div className="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/60 to-dark-900" />
       </div>
 
-      {/* Floating orbs */}
+      {/* Floating orbs - كرات ضوئية متحركة لإضافة لمسة جمالية */}
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/20 rounded-full blur-[100px] animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '1.5s' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          
+          {/* الجانب الأيسر - المحتوى النصي */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
+            {/* شارة التخصص */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -40,6 +47,7 @@ export default function Hero() {
               Data Engineer & Tech Education Leader
             </motion.div>
 
+            {/* العنوان الرئيسي مع تأثير التدرج اللوني */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,31 +76,9 @@ export default function Hero() {
               className="theme-text-secondary text-lg max-w-xl mx-auto lg:mx-0 mb-8"
             >
               Building the future of tech education, one line of code at a time.
-              Transforming young minds through innovative coding curricula and leadership.
             </motion.p>
 
-            {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start"
-            >
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg glass">
-                <GraduationCap className="w-4 h-4 text-primary-400" />
-                <span className="text-sm theme-text-secondary">CS Graduate — Minya University 2025</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg glass">
-                <Brain className="w-4 h-4 text-accent-400" />
-                <span className="text-sm theme-text-secondary">AI & Data Engineering @ Digilians</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-lg glass">
-                <Rocket className="w-4 h-4 text-primary-400" />
-                <span className="text-sm theme-text-secondary">Founder of Kids Coding Hub</span>
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
+            {/* أزرار اتخاذ إجراء (CTA) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,7 +100,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Stats Cards */}
+          {/* الجانب الأيمن - بطاقات الإحصائيات التفاعلية */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -122,49 +108,27 @@ export default function Hero() {
             className="hidden lg:flex flex-col items-center gap-6"
           >
             <div className="relative w-full max-w-md">
-              {/* Main avatar placeholder */}
+              {/* صورة رمزية (Avatar) بتأثير نبضي */}
               <div className="w-72 h-72 mx-auto rounded-3xl bg-gradient-to-br from-primary-600/30 to-accent-500/30 flex items-center justify-center animate-pulse-glow">
                 <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary-700/40 to-dark-800 flex items-center justify-center">
                   <span className="text-8xl">👩‍💻</span>
                 </div>
               </div>
 
-              {/* Floating stat cards */}
+              {/* بطاقات إحصائية عائمة */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl"
               >
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                  20+
-                </div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">20+</div>
                 <div className="text-xs theme-text-muted">Instructors Managed</div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 glass rounded-2xl p-4 shadow-xl"
-              >
-                <div className="text-3xl font-bold bg-gradient-to-r from-accent-400 to-primary-400 bg-clip-text text-transparent">
-                  4+
-                </div>
-                <div className="text-xs theme-text-muted">Years Experience</div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 2 }}
-                className="absolute top-1/2 -right-12 glass rounded-2xl p-4 shadow-xl"
-              >
-                <div className="text-2xl font-bold text-primary-400">ICPC</div>
-                <div className="text-xs theme-text-muted">Problem Solving</div>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll Down */}
+        {/* سهم التمرير لأسفل */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -172,10 +136,7 @@ export default function Hero() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <span className="text-xs theme-text-muted">Scroll Down</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
             <ArrowDown className="w-5 h-5 text-primary-400" />
           </motion.div>
         </motion.div>

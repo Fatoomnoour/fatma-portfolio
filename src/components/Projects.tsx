@@ -2,12 +2,18 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ExternalLink, Eye, Layers, Tag } from 'lucide-react';
 
+// 1. استيراد الصور كملفات (هذا يضمن أن Vite سيعالجها بشكل صحيح)
+import etlImg from '../../public/images/project-etl.jpg';
+import curriculumImg from '../../public/images/project-curriculum.jpg';
+import platformImg from '../../public/images/project-platform.jpg';
+import trainingImg from '../../public/images/project-training.jpg';
+import gamifiedImg from '../../public/images/project-gamified.jpg';
+
 const projects = [
   {
     title: 'ETL Pipeline with SSIS',
-    description:
-      'End-to-end ETL data pipeline built with SQL Server Integration Services (SSIS). Extracts data from multiple sources, applies complex transformations, and loads into a structured data warehouse for analytics and reporting.',
-    image: 'images/project-etl.jpg',
+    description: 'End-to-end ETL data pipeline built with SQL Server Integration Services (SSIS). Extracts data from multiple sources, applies complex transformations, and loads into a structured data warehouse for analytics and reporting.',
+    image: etlImg, // استخدام المتغير المستورد هنا
     tags: ['SSIS', 'ETL', 'SQL Server', 'Data Warehouse'],
     category: 'data',
     highlights: ['Data Pipeline', 'SSIS Packages', 'Automated Workflow'],
@@ -15,9 +21,8 @@ const projects = [
   },
   {
     title: 'Kids Coding Hub Curriculum Suite',
-    description:
-      'Complete coding curriculum package for ages 6-16 covering Scratch, Python, and Web Development. Includes lesson plans, project templates, and assessment rubrics used across multiple academies.',
-    image: 'images/project-curriculum.jpg',
+    description: 'Complete coding curriculum package for ages 6-16 covering Scratch, Python, and Web Development. Includes lesson plans, project templates, and assessment rubrics used across multiple academies.',
+    image: curriculumImg,
     tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Dev'],
     category: 'education',
     highlights: ['Ages 6-16', '3 Programming Tracks', 'Complete Package'],
@@ -25,9 +30,8 @@ const projects = [
   },
   {
     title: 'Interactive Learning Platform',
-    description:
-      'Developed engaging educational content and interactive exercises for online learning delivery. Features progress tracking, gamified elements, and adaptive difficulty levels.',
-    image: 'images/project-platform.jpg',
+    description: 'Developed engaging educational content and interactive exercises for online learning delivery. Features progress tracking, gamified elements, and adaptive difficulty levels.',
+    image: platformImg,
     tags: ['E-Learning', 'Interactive', 'Content Design'],
     category: 'education',
     highlights: ['Adaptive Learning', 'Progress Tracking', 'Gamified'],
@@ -35,9 +39,8 @@ const projects = [
   },
   {
     title: 'Instructor Training Program',
-    description:
-      'Created comprehensive TOT (Training of Trainers) program for onboarding and developing coding instructors. Scaled to support 20+ instructors across multiple locations.',
-    image: 'images/project-training.jpg',
+    description: 'Created comprehensive TOT (Training of Trainers ) program for onboarding and developing coding instructors. Scaled to support 20+ instructors across multiple locations.',
+    image: trainingImg,
     tags: ['TOT', 'Training', 'Mentorship'],
     category: 'leadership',
     highlights: ['20+ Instructors', 'Multi-location', 'Certification'],
@@ -45,15 +48,17 @@ const projects = [
   },
   {
     title: 'Gamified Coding Challenges',
-    description:
-      'Designed fun, age-appropriate coding challenges and competitions to motivate young learners. Includes achievement systems, leaderboards, and team-based challenges.',
-    image: 'images/project-gamified.jpg',
+    description: 'Designed fun, age-appropriate coding challenges and competitions to motivate young learners. Includes achievement systems, leaderboards, and team-based challenges.',
+    image: gamifiedImg,
     tags: ['Gamification', 'Challenges', 'Fun Learning'],
     category: 'education',
     highlights: ['Achievement System', 'Leaderboards', 'Team Challenges'],
     link: null,
   },
 ];
+
+// ... بقية كود المكون (Projects) كما هو دون تغيير
+
 
 const categories = ['all', 'data', 'education', 'leadership'];
 
