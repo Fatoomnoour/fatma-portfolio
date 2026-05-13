@@ -7,7 +7,7 @@ const projects = [
     title: 'ETL Pipeline with SSIS',
     description:
       'End-to-end ETL data pipeline built with SQL Server Integration Services (SSIS). Extracts data from multiple sources, applies complex transformations, and loads into a structured data warehouse for analytics and reporting.',
-    image: '/images/project-etl.jpg',
+    image: 'images/project-etl.jpg',
     tags: ['SSIS', 'ETL', 'SQL Server', 'Data Warehouse'],
     category: 'data',
     highlights: ['Data Pipeline', 'SSIS Packages', 'Automated Workflow'],
@@ -17,7 +17,7 @@ const projects = [
     title: 'Kids Coding Hub Curriculum Suite',
     description:
       'Complete coding curriculum package for ages 6-16 covering Scratch, Python, and Web Development. Includes lesson plans, project templates, and assessment rubrics used across multiple academies.',
-    image: '/images/project-curriculum.jpg',
+    image: 'images/project-curriculum.jpg',
     tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Dev'],
     category: 'education',
     highlights: ['Ages 6-16', '3 Programming Tracks', 'Complete Package'],
@@ -27,7 +27,7 @@ const projects = [
     title: 'Interactive Learning Platform',
     description:
       'Developed engaging educational content and interactive exercises for online learning delivery. Features progress tracking, gamified elements, and adaptive difficulty levels.',
-    image: '/images/project-platform.jpg',
+    image: 'images/project-platform.jpg',
     tags: ['E-Learning', 'Interactive', 'Content Design'],
     category: 'education',
     highlights: ['Adaptive Learning', 'Progress Tracking', 'Gamified'],
@@ -37,7 +37,7 @@ const projects = [
     title: 'Instructor Training Program',
     description:
       'Created comprehensive TOT (Training of Trainers) program for onboarding and developing coding instructors. Scaled to support 20+ instructors across multiple locations.',
-    image: '/images/project-training.jpg',
+    image: 'images/project-training.jpg',
     tags: ['TOT', 'Training', 'Mentorship'],
     category: 'leadership',
     highlights: ['20+ Instructors', 'Multi-location', 'Certification'],
@@ -47,7 +47,7 @@ const projects = [
     title: 'Gamified Coding Challenges',
     description:
       'Designed fun, age-appropriate coding challenges and competitions to motivate young learners. Includes achievement systems, leaderboards, and team-based challenges.',
-    image: '/images/project-gamified.jpg',
+    image: 'images/project-gamified.jpg',
     tags: ['Gamification', 'Challenges', 'Fun Learning'],
     category: 'education',
     highlights: ['Achievement System', 'Leaderboards', 'Team Challenges'],
