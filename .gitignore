@@ -1,0 +1,38 @@
+# المجلدات التي يتم إنشاؤها تلقائياً (Dependencies)
+# لا يتم رفعها لأنها كبيرة جداً ويمكن إعادة تحميلها عبر pnpm install
+node_modules/
+.pnpm-debug.log*
+
+# مخرجات عملية البناء (Production Build)
+# يتم إنشاؤها عند تشغيل pnpm run build، وGitHub Actions سيقوم بإنشائها تلقائياً
+dist/
+dist-ssr/
+*.local
+
+# ملفات السجلات (Logs)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ملفات البيئة الحساسة (Environment Variables)
+# تحتوي غالباً على مفاتيح API سرية، لذا لا يجب رفعها أبداً
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات إعدادات المحرر (Editor Settings)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ملفات النظام
+.DS_Store
+Thumbs.db
