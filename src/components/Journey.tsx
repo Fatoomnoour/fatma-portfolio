@@ -114,8 +114,7 @@ export default function Journey() {
             </span>
           </h2>
           <p className="theme-text-secondary max-w-xl mx-auto">
-            From competitive programming to founding my own academy — every step built
-            toward a mission in tech education and data engineering.
+            From competitive programming to leading tech education teams, every step has built a strong foundation for my transition into data engineering and backend development.
           </p>
         </motion.div>
 

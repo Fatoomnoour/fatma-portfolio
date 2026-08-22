@@ -2,7 +2,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
+// import Services from './components/Services';
 import DataFocus from './components/DataFocus';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
@@ -17,7 +17,7 @@ export default function App() {
         <Navbar />
         <Hero />
         <About />
-        <Services />
+        {/* <Services /> */}
         <DataFocus />
         <Projects />
         <Journey />

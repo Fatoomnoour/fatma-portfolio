@@ -44,7 +44,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary-400 text-sm font-medium mb-6"
             >
               <Sparkles className="w-4 h-4" />
-              Data Engineer & Tech Education Leader
+              Data Engineer & Technical Educator
             </motion.div>
 
             {/* العنوان الرئيسي مع تأثير التدرج اللوني */}
@@ -66,7 +66,7 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="text-lg sm:text-xl theme-text-secondary font-medium mb-6"
             >
-              Data Engineer · AI Trainer · Entrepreneur
+              Data Engineer · Python Backend Developer · Technical Educator
             </motion.h2>
 
             <motion.p
@@ -75,7 +75,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="theme-text-secondary text-lg max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              Building the future of tech education, one line of code at a time.
+              I build practical data systems and backend applications using Python, SQL, and modern data engineering tools.
             </motion.p>
 
             {/* أزرار اتخاذ إجراء (CTA) */}
@@ -109,9 +109,9 @@ export default function Hero() {
           >
             <div className="relative w-full max-w-md">
               {/* صورة رمزية (Avatar) بتأثير نبضي */}
-              <div className="w-72 h-72 mx-auto rounded-3xl bg-gradient-to-br from-primary-600/30 to-accent-500/30 flex items-center justify-center animate-pulse-glow">
-                <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-primary-700/40 to-dark-800 flex items-center justify-center">
-                  <span className="text-8xl">👩‍💻</span>
+              <div className="w-72 h-96 mx-auto rounded-3xl bg-gradient-to-br from-primary-600/30 to-accent-500/30 flex items-center justify-center animate-pulse-glow overflow-hidden">
+                <div className="w-[270px] h-[364px] rounded-2xl bg-gradient-to-br from-primary-700/40 to-dark-800 flex items-center justify-center overflow-hidden">
+                  <img src="/fatma-nour-professional-portrait.webp" alt="Fatma Nour" className="w-full h-full object-cover" />
                 </div>
               </div>
 

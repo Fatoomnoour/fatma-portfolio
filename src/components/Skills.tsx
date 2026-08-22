@@ -3,23 +3,21 @@ import { useRef } from 'react';
 import { Code, Wrench, Users } from 'lucide-react';
 
 const technicalSkills = [
-  { name: 'Python', level: 95 },
-  { name: 'JavaScript', level: 85 },
-  { name: 'C++', level: 80 },
-  { name: 'Machine Learning', level: 75 },
-  { name: 'Data Engineering (SSIS/ETL)', level: 70 },
-  { name: 'React & Web Dev', level: 65 },
+  { name: 'Data Engineering', desc: 'Kafka, PySpark, BigQuery, dbt, Airflow' },
+  { name: 'Backend & API', desc: 'Python, SQL, Flask, REST APIs' },
+  { name: 'Infrastructure', desc: 'Docker, Linux, Git, GitHub' },
+  { name: 'Analytics', desc: 'Streamlit, Pandas, Scikit-Learn' },
 ];
 
 const tools = [
   { name: 'Python', icon: '🐍' },
-  { name: 'JavaScript', icon: '⚡' },
-  { name: 'SSIS / ETL', icon: '🔄' },
-  { name: 'SQL Server', icon: '🗃️' },
-  { name: 'Scratch', icon: '🐱' },
-  { name: 'C++', icon: '⚙️' },
-  { name: 'React', icon: '⚛️' },
-  { name: 'Git/GitHub', icon: '🔗' },
+  { name: 'Kafka', icon: '⚡' },
+  { name: 'Spark', icon: '✨' },
+  { name: 'Airflow', icon: '🔄' },
+  { name: 'BigQuery', icon: '🗃️' },
+  { name: 'Docker', icon: '🐳' },
+  { name: 'SQL', icon: '📊' },
+  { name: 'Git', icon: '🔗' },
 ];
 
 const leadershipSkills = [
@@ -75,22 +73,18 @@ export default function Skills() {
               </div>
               Technical Skills
             </h3>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {technicalSkills.map((skill, i) => (
-                <div key={i}>
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="theme-text-secondary font-medium">{skill.name}</span>
-                    <span className="text-primary-400 font-semibold">{skill.level}%</span>
-                  </div>
-                  <div className="h-2.5 theme-bg-card rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1, delay: 0.5 + i * 0.1, ease: 'easeOut' }}
-                      className="h-full rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
-                    />
-                  </div>
-                </div>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+                  className="p-3.5 rounded-xl theme-bg-card border theme-border hover:border-primary-500/20 transition-all"
+                >
+                  <h4 className="text-sm font-semibold">{skill.name}</h4>
+                  <p className="text-xs theme-text-muted mt-1">{skill.desc}</p>
+                </motion.div>
               ))}
             </div>
           </motion.div>

@@ -7,18 +7,18 @@ const pillars = [
     icon: Database,
     title: 'ETL & Data Pipelines',
     points: [
-      'Designing end-to-end ETL workflows with SSIS',
-      'Building reliable data ingestion from multiple sources',
-      'Structuring data warehouses for analytics and reporting',
+      'Designing end-to-end ETL workflows with modern tools',
+      'Building reliable real-time data ingestion using Kafka',
+      'Structuring data warehouses for analytics in BigQuery',
     ],
   },
   {
     icon: Workflow,
-    title: 'Data Architecture & Automation',
+    title: 'Orchestration & Streaming',
     points: [
-      'Translating business needs into data models',
-      'Automating recurring data processes and checks',
-      'Ensuring data quality, consistency, and traceability',
+      'Processing streaming data with PySpark Structured Streaming',
+      'Orchestrating complex data workflows using Apache Airflow',
+      'Managing data transformations and modeling with dbt',
     ],
   },
   {

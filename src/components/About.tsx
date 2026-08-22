@@ -6,7 +6,7 @@ const highlights = [
   {
     icon: Database,
     title: 'Data Engineering',
-    description: 'ETL pipelines with SSIS, data warehousing & analytics solutions',
+    description: 'ETL pipelines with Kafka, Spark, Airflow, dbt, and BigQuery',
     color: 'from-blue-500 to-cyan-600',
   },
   {
@@ -59,9 +59,9 @@ export default function About() {
         >
           <span className="text-primary-400 text-sm font-semibold uppercase tracking-widest">About Me</span>
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-6">
-            Passionate About{' '}
+            Data Engineering &{' '}
             <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Tech & Education
+              Technical Education
             </span>
           </h2>
         </motion.div>
@@ -75,11 +75,7 @@ export default function About() {
           >
             <div className="glass rounded-2xl p-8 space-y-6">
               <p className="theme-text-secondary text-lg leading-relaxed">
-                A passionate Computer Science graduate with a unique journey that spans from
-                competitive programming (ICPC) to founding my own coding academy for kids. With{' '}
-                <strong className="text-primary-400">4+ years</strong> of progressive experience in tech education,
-                I bring a rare combination of technical expertise, leadership skills, and
-                entrepreneurial mindset.
+                A Computer Science graduate with a strong foundation in problem-solving and algorithms (ICPC), transitioning into building robust, scalable data systems. I specialize in designing end-to-end data pipelines, streaming architectures, and backend APIs using modern tools like Python, Kafka, and Airflow.
               </p>
 
               <div className="border-l-4 border-primary-500 pl-6 py-2">
@@ -88,9 +84,7 @@ export default function About() {
                   What Makes Me Different
                 </h3>
                 <p className="theme-text-secondary leading-relaxed">
-                  I don't just teach coding — I build complete educational ecosystems. From
-                  curriculum design to team management to business development, I bring end-to-end
-                  expertise in tech education for young learners.
+                  Beyond engineering, I have 4+ years of leadership in technical education. I founded Kids Coding Hub and managed teams of instructors, proving my ability to break down complex technical concepts, organize workflows, and deliver structured results.
                 </p>
               </div>
 

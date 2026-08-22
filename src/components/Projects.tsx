@@ -11,13 +11,22 @@ import gamifiedImg from '../../public/images/project-gamified.jpg';
 
 const projects = [
   {
-    title: 'ETL Pipeline with SSIS',
-    description: 'End-to-end ETL data pipeline built with SQL Server Integration Services (SSIS). Extracts data from multiple sources, applies complex transformations, and loads into a structured data warehouse for analytics and reporting.',
-    image: etlImg, // استخدام المتغير المستورد هنا
-    tags: ['SSIS', 'ETL', 'SQL Server', 'Data Warehouse'],
+    title: 'PharmStock AI Data Platform',
+    description: 'End-to-end pharmacy inventory data platform using Python, Kafka, PySpark Structured Streaming, BigQuery, dbt, Airflow, Docker, and Streamlit.',
+    image: etlImg,
+    tags: ['Python', 'Kafka', 'Spark', 'Airflow', 'BigQuery', 'dbt'],
     category: 'data',
-    highlights: ['Data Pipeline', 'SSIS Packages', 'Automated Workflow'],
-    link: 'https://github.com/Fatoomnoour/ETL',
+    highlights: ['Real-time Streaming', 'ETL Orchestration', 'Analytics Dashboard'],
+    link: 'https://github.com/Fatoomnoour/pharmstock-ai-data-platform',
+  },
+  {
+    title: 'ABP Estimation API',
+    description: 'Flask backend API integrating a TensorFlow/Keras model for arterial blood pressure estimation from PPG and ECG signals.',
+    image: platformImg,
+    tags: ['Python', 'Flask', 'TensorFlow', 'REST API'],
+    category: 'data',
+    highlights: ['Backend API', 'ML Integration', 'Secure Config'],
+    link: 'https://github.com/Fatoomnoour/abp-api',
   },
   {
     title: 'Kids Coding Hub Curriculum Suite',
@@ -28,15 +37,7 @@ const projects = [
     highlights: ['Ages 6-16', '3 Programming Tracks', 'Complete Package'],
     link: 'https://fatoomnoour.github.io/kidscodinghub-Scratch3_Course/',
   },
-  {
-    title: 'Interactive Learning Platform',
-    description: 'Developed engaging educational content and interactive exercises for online learning delivery. Features progress tracking, gamified elements, and adaptive difficulty levels.',
-    image: platformImg,
-    tags: ['E-Learning', 'Interactive', 'Content Design'],
-    category: 'education',
-    highlights: ['Adaptive Learning', 'Progress Tracking', 'Gamified'],
-    link: null,
-  },
+
   {
     title: 'Instructor Training Program',
     description: 'Created comprehensive TOT (Training of Trainers ) program for onboarding and developing coding instructors. Scaled to support 20+ instructors across multiple locations.',
@@ -240,9 +241,9 @@ export default function Projects() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { institution: 'Minya University', title: 'Bachelor of Computer Science', year: '2025' },
-                { institution: 'Digilians', title: 'AI & Data Engineering Training', year: '2026-Present' },
+                { institution: 'Microsoft', title: 'Azure Data Fundamentals (DP-900)', year: '2026' },
+                { institution: 'Digilians', title: 'AI & Data Engineering Training', year: '2026' },
                 { institution: 'ICPC', title: 'Problem Solving & Algorithms', year: 'University Level' },
-                { institution: 'TOT Certification', title: 'Training of Trainers', year: '2022' },
               ].map((cert, i) => (
                 <div
                   key={i}
