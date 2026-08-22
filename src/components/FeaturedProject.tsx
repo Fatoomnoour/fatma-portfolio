@@ -61,9 +61,9 @@ export default function FeaturedProject() {
               <span className="status-dot"><span /> evidence-led</span>
             </div>
             
-            <div className="relative h-48 mb-8 rounded-xl overflow-hidden border theme-border">
-              <img src={platformImg} alt="ABP API visualization" className="w-full h-full object-cover opacity-60" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1120] to-transparent" />
+            <div className="relative h-48 mb-8 rounded-xl overflow-hidden border theme-border bg-slate-100 dark:bg-slate-900">
+              <img src={platformImg} alt="ABP API visualization" className="w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-normal" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#1E293B] to-transparent" />
             </div>
 
             <div className="space-y-3">
@@ -153,15 +153,15 @@ export default function FeaturedProject() {
             <div className="glass p-6 md:p-8">
               <p className="eyebrow">The workflow</p>
               <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-medium">
-                <span className="px-3 py-1.5 rounded-lg bg-dark-900 border theme-border">Data Collection</span>
-                <span className="text-primary-500/50">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-dark-900 border theme-border">Cleaning</span>
-                <span className="text-primary-500/50">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-dark-900 border theme-border">Feature Engineering</span>
-                <span className="text-primary-500/50">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-dark-900 border theme-border">Model Training</span>
-                <span className="text-primary-500/50">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-dark-900 border theme-border">Evaluation</span>
+                <span className="px-3 py-1.5 rounded-lg theme-bg-card border theme-border">Data Collection</span>
+                <span className="text-primary-600/40 dark:text-primary-500/50">→</span>
+                <span className="px-3 py-1.5 rounded-lg theme-bg-card border theme-border">Cleaning</span>
+                <span className="text-primary-600/40 dark:text-primary-500/50">→</span>
+                <span className="px-3 py-1.5 rounded-lg theme-bg-card border theme-border">Feature Engineering</span>
+                <span className="text-primary-600/40 dark:text-primary-500/50">→</span>
+                <span className="px-3 py-1.5 rounded-lg theme-bg-card border theme-border">Model Training</span>
+                <span className="text-primary-600/40 dark:text-primary-500/50">→</span>
+                <span className="px-3 py-1.5 rounded-lg theme-bg-card border theme-border">Evaluation</span>
               </div>
               <p className="text-lg leading-relaxed mt-6 theme-text-secondary">
                 This project demonstrates a complete EDA and modeling process. It focuses on cleaning noisy datasets, extracting relevant features, and applying Scikit-learn models to predict stress levels based on physiological inputs.
@@ -189,15 +189,15 @@ export default function FeaturedProject() {
             </div>
             
             <div className="space-y-4">
-              <div className="p-4 bg-dark-900/50 border theme-border rounded-xl">
+              <div className="p-4 bg-slate-50 dark:bg-slate-900/50 border theme-border rounded-xl">
                 <p className="text-xs uppercase tracking-widest theme-text-muted mb-1">Dataset</p>
                 <p className="font-medium text-sm">Physiological sensor data (processed via Pandas)</p>
               </div>
-              <div className="p-4 bg-dark-900/50 border theme-border rounded-xl">
+              <div className="p-4 bg-slate-50 dark:bg-slate-900/50 border theme-border rounded-xl">
                 <p className="text-xs uppercase tracking-widest theme-text-muted mb-1">Models Applied</p>
                 <p className="font-medium text-sm">Classification algorithms evaluated for accuracy</p>
               </div>
-              <div className="p-4 bg-dark-900/50 border theme-border rounded-xl">
+              <div className="p-4 bg-slate-50 dark:bg-slate-900/50 border theme-border rounded-xl">
                 <p className="text-xs uppercase tracking-widest theme-text-muted mb-1">Outcome</p>
                 <p className="font-medium text-sm">Predictive pipeline with established evaluation metrics</p>
               </div>

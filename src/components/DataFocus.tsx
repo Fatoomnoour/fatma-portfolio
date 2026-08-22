@@ -31,7 +31,7 @@ export default function DataFocus() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-px bg-slate-700/30 border border-slate-700/30">
+        <div className="grid sm:grid-cols-3 gap-px bg-slate-200 dark:bg-slate-700/30 border theme-border">
           {stack.map((group, index) => {
             const Icon = group.icon;
             return (
@@ -40,9 +40,9 @@ export default function DataFocus() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.35, delay: index * 0.06 }}
-                className="bg-[#111827] p-6 min-h-48"
+                className="theme-bg-card p-6 min-h-48"
               >
-                <Icon className="w-5 h-5 text-cyan-300" />
+                <Icon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                 <h3 className="font-semibold mt-6">{group.title}</h3>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {group.tools.map((tool) => <span key={tool} className="tech-chip">{tool}</span>)}

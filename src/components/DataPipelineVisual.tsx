@@ -25,12 +25,12 @@ export default function DataPipelineVisual() {
               transition={{ duration: 0.3, delay: index * 0.15 }}
               className="w-full flex flex-col items-center"
             >
-              <div className="w-full flex items-center justify-center gap-3 p-4 bg-dark-900 border theme-border rounded-xl">
-                <Icon className="w-5 h-5 text-primary-400" />
+              <div className="w-full flex items-center justify-center gap-3 p-4 theme-bg-card border theme-border rounded-xl">
+                <Icon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                 <span className="font-medium text-sm">{step.label}</span>
               </div>
               {index < steps.length - 1 && (
-                <div className="py-2 text-primary-500/50">
+                <div className="py-2 text-primary-600/30 dark:text-primary-500/50">
                   <ArrowDown className="w-4 h-4" />
                 </div>
               )}

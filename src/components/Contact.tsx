@@ -8,52 +8,55 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    const payload = {
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-      source: 'portfolio-contact',
-      channel: 'whatsapp_webhook',
-      timestamp: new Date().toISOString(),
-    };
-
-    const webhookUrl = (import.meta as any).env?.VITE_WHATSAPP_WEBHOOK_URL as
-      | string
-      | undefined;
-
+    // Using Formspree as a reliable, free, no-backend solution for static portfolios
+    // User needs to replace 'YOUR_FORM_ID' with their actual Formspree endpoint ID
+    const formEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+    
     try {
-      if (webhookUrl) {
-        await fetch(webhookUrl, {
+      // If endpoint is not configured, fallback to mailto immediately
+      if (formEndpoint.includes('YOUR_FORM_ID')) {
+        const mailtoLink = `mailto:fatmanour048@gmail.com?subject=${encodeURIComponent(
+          formData.subject
+        )}&body=${encodeURIComponent(
+          `Hi Fatma,\n\nMy name is ${formData.name}.\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
+        )}`;
+        window.open(mailtoLink, '_blank');
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const response = await fetch(formEndpoint, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message
+          }),
         });
 
-        alert('تم إرسال رسالتك بنجاح! سيتم التواصل معك على واتساب أو البريد قريبًا.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSubmitting(false);
-        return;
+        if (response.ok) {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        } else {
+          setSubmitStatus('error');
+        }
       }
     } catch (error) {
-      console.error('Webhook error:', error);
+      console.error('Submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
-
-    // Fallback: إرسال عبر الإيميل في حال عدم وجود Webhook أو حدوث خطأ
-    const mailtoLink = `mailto:fatmanour048@gmail.com?subject=${encodeURIComponent(
-      formData.subject
-    )}&body=${encodeURIComponent(
-      `Hi Fatma,\n\nMy name is ${formData.name}.\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
-    )}`;
-    window.open(mailtoLink, '_blank');
-    setIsSubmitting(false);
   };
 
   return (
@@ -193,7 +196,7 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border theme-border placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
                     placeholder="Your name"
                   />
                 </div>
@@ -206,7 +209,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border theme-border placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -220,7 +223,7 @@ export default function Contact() {
                   required
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border theme-border placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all"
                   placeholder="How can I help you?"
                 />
               </div>
@@ -233,20 +236,28 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border placeholder-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl theme-input-bg theme-input-text border theme-border placeholder-slate-400 dark:placeholder-slate-500 focus:border-primary-500 focus:ring-1 focus:ring-primary-500/50 focus:outline-none transition-all resize-none"
                   placeholder="Tell me about your project or idea..."
                 />
               </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full sm:w-auto button-primary ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
-              >
-                <Send className="w-4 h-4" />
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full sm:w-auto button-primary ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                >
+                  <Send className="w-4 h-4" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+                {submitStatus === 'success' && (
+                  <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">Message ready!</span>
+                )}
+                {submitStatus === 'error' && (
+                  <span className="text-sm font-medium text-red-600 dark:text-red-400">Failed to send. Please use direct email.</span>
+                )}
+              </div>
             </form>
           </motion.div>
         </div>
