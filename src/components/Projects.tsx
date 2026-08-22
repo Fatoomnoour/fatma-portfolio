@@ -35,7 +35,7 @@ const projects = [
     tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Dev'],
     category: 'education',
     highlights: ['Ages 6-16', '3 Programming Tracks', 'Complete Package'],
-    link: 'https://fatoomnoour.github.io/kidscodinghub-Scratch3_Course/',
+    link: 'https://www.facebook.com/Kids.Coding.Hub',
   },
 
   {
@@ -45,7 +45,7 @@ const projects = [
     tags: ['TOT', 'Training', 'Mentorship'],
     category: 'leadership',
     highlights: ['20+ Instructors', 'Multi-location', 'Certification'],
-    link: null,
+    link: 'https://drive.google.com/file/d/1nok0UChRrc0ba9Ub0mXvQp507h0vSLon/view?usp=sharing',
   },
   {
     title: 'Gamified Coding Challenges',

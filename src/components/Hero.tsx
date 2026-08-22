@@ -4,6 +4,7 @@ import { ArrowDown, Sparkles, GraduationCap, Brain, Rocket } from 'lucide-react'
 // 1. استيراد صورة الخلفية برمجياً
 // هذا السطر يخبر Vite أن يعالج الصورة ويخصص لها مساراً صحيحاً عند النشر
 import heroBg from '../../public/images/hero-bg.jpg';
+import profileImg from '../../public/fatma-nour-professional-portrait.webp';
 
 export default function Hero() {
   return (
@@ -111,7 +112,7 @@ export default function Hero() {
               {/* صورة رمزية (Avatar) بتأثير نبضي */}
               <div className="w-72 h-96 mx-auto rounded-3xl bg-gradient-to-br from-primary-600/30 to-accent-500/30 flex items-center justify-center animate-pulse-glow overflow-hidden">
                 <div className="w-[270px] h-[364px] rounded-2xl bg-gradient-to-br from-primary-700/40 to-dark-800 flex items-center justify-center overflow-hidden">
-                  <img src="/fatma-nour-professional-portrait.webp" alt="Fatma Nour" className="w-full h-full object-cover" />
+                  <img src={profileImg} alt="Fatma Nour" className="w-full h-full object-cover" />
                 </div>
               </div>
 
