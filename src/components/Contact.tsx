@@ -72,14 +72,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary-400 text-sm font-semibold uppercase tracking-widest">
-            Get in Touch
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-            Let's{' '}
-            <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Connect
-            </span>
+          <span className="eyebrow">Get in Touch</span>
+          <h2 className="section-title mt-3 mb-4">
+            Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="theme-text-secondary max-w-xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from you.
@@ -98,8 +93,8 @@ export default function Contact() {
               <h3 className="text-xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-5">
                 <a href="mailto:fatmanour048@gmail.com" className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-slate-800 border theme-border flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
                     <p className="text-xs theme-text-muted mb-0.5">Email</p>
@@ -107,8 +102,8 @@ export default function Contact() {
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-teal-600 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-slate-800 border theme-border flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
                     <p className="text-xs theme-text-muted mb-0.5">Location</p>
@@ -116,8 +111,8 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-slate-800 border theme-border flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div>
                     <p className="text-xs theme-text-muted mb-0.5">Availability</p>
@@ -172,7 +167,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:fatmanour048@gmail.com"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-accent-500 text-white! text-sm font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all"
+                className="button-primary w-full sm:w-auto"
               >
                 <Mail className="w-4 h-4" />
                 Email Me Directly
@@ -245,8 +240,8 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-accent-500 text-white! font-semibold hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 flex items-center justify-center gap-2 ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'
+                className={`w-full sm:w-auto button-primary ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >
                 <Send className="w-4 h-4" />

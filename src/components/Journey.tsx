@@ -10,7 +10,7 @@ const timeline = [
     org: 'Digilians',
     desc: 'AI/ML development, data pipeline engineering, and practical data systems',
     icon: Brain,
-    color: 'from-accent-500 to-teal-600',
+    color: 'bg-primary-500',
     current: true,
   },
   {
@@ -20,7 +20,7 @@ const timeline = [
     org: 'Minya University',
     desc: 'Bachelor of Computer Science',
     icon: GraduationCap,
-    color: 'from-primary-500 to-primary-700',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -30,7 +30,7 @@ const timeline = [
     org: 'Kids Coding Hub',
     desc: 'Established own coding academy for kids, built team and curriculum from scratch',
     icon: Rocket,
-    color: 'from-amber-500 to-orange-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -40,7 +40,7 @@ const timeline = [
     org: 'Schoola Academy',
     desc: 'Led content strategy, mentoring, and quality assurance across programs',
     icon: BookOpen,
-    color: 'from-pink-500 to-rose-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -50,7 +50,7 @@ const timeline = [
     org: 'Codk Academy',
     desc: 'Taught coding to kids, developed initial teaching methodology and course materials',
     icon: BookOpen,
-    color: 'from-purple-500 to-indigo-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -60,7 +60,7 @@ const timeline = [
     org: 'Engineer Academy',
     desc: 'Managed 20+ instructors, developed training programs and certification paths',
     icon: Users,
-    color: 'from-blue-500 to-cyan-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -70,7 +70,7 @@ const timeline = [
     org: 'Skills Area & GDG HR',
     desc: 'Taught programming & soft skills, community engagement and team coordination',
     icon: Heart,
-    color: 'from-red-500 to-pink-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
   {
@@ -80,7 +80,7 @@ const timeline = [
     org: 'Minya University',
     desc: 'Competitive problem solving training, algorithm design and data structures',
     icon: Trophy,
-    color: 'from-yellow-500 to-amber-600',
+    color: 'bg-slate-700 dark:bg-slate-600',
     current: false,
   },
 ];
@@ -121,7 +121,7 @@ export default function Journey() {
         {/* Timeline */}
         <div className="relative">
           {/* Center line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary-500 via-accent-500 to-primary-500/0" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary-400 via-slate-300 to-transparent dark:from-primary-600 dark:via-slate-700" />
 
           <div className="space-y-12">
             {timeline.map((item, i) => {
@@ -140,19 +140,19 @@ export default function Journey() {
                   <div className={`flex-1 ${isLeft ? 'md:text-right' : 'md:text-left'} text-left ml-16 md:ml-0`}>
                     <div className={`glass rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300 group hover:-translate-y-1 ${item.current ? 'border-accent-500/30 shadow-lg shadow-accent-500/5' : ''}`}>
                       <div className={`inline-flex items-center gap-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-                        <span className="text-xs font-bold text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg">
+                        <span className="text-xs font-bold text-primary-600 dark:text-primary-400 bg-primary-500/10 px-3 py-1 rounded-lg">
                           {item.badge}
                         </span>
                         {item.current && (
-                          <span className="text-xs font-semibold text-accent-400 bg-accent-500/10 px-2 py-0.5 rounded-md animate-pulse">
+                          <span className="text-xs font-semibold text-accent-600 dark:text-accent-400 bg-accent-500/10 px-2 py-0.5 rounded-md animate-pulse">
                             Current
                           </span>
                         )}
                       </div>
-                      <h3 className="text-lg font-bold mt-3 group-hover:text-primary-400 transition-colors">
+                      <h3 className="text-lg font-bold mt-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                         {item.title}
                       </h3>
-                      <h4 className="text-sm text-accent-400 font-medium mt-1">{item.org}</h4>
+                      <h4 className="text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">{item.org}</h4>
                       <p className="text-sm theme-text-secondary mt-2">{item.desc}</p>
                     </div>
                   </div>
@@ -160,9 +160,9 @@ export default function Journey() {
                   {/* Timeline Node */}
                   <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10">
                     <div
-                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg transition-transform ${item.current ? 'animate-pulse-glow' : ''}`}
+                      className={`w-10 h-10 rounded-full ${item.color} flex items-center justify-center shadow-md border-4 border-white dark:border-[#0B1120] transition-transform ${item.current ? 'animate-pulse-glow' : ''}`}
                     >
-                      <item.icon className="w-5 h-5 text-white" />
+                      <item.icon className="w-4 h-4 text-white" />
                     </div>
                   </div>
 

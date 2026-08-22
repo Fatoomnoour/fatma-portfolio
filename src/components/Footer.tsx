@@ -15,11 +15,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl bg-primary-50 dark:bg-slate-800 border theme-border flex items-center justify-center">
+              <Code2 className="w-5 h-5 text-primary-600 dark:text-primary-400" />
             </div>
             <div>
-              <span className="text-lg font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+              <span className="text-lg font-bold text-slate-900 dark:text-white">
                 Fatma Nour
               </span>
               <p className="text-xs theme-text-muted">Data Engineer | Systems Builder</p>

@@ -12,9 +12,9 @@ const flow = [
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[78vh] flex items-center pt-24 pb-16 overflow-hidden hero-grid">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-indigo-950/70" />
-      <div className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-cyan-400/8 blur-[120px]" />
-      <div className="absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-indigo-500/8 blur-[120px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-950/95 dark:to-slate-900" />
+      <div className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-teal-400/10 dark:bg-teal-400/5 blur-[100px]" />
+      <div className="absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-blue-500/10 dark:bg-blue-500/5 blur-[100px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center">
@@ -25,7 +25,7 @@ export default function Hero() {
             className="max-w-2xl"
           >
             <div className="eyebrow flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(56,189,248,0.85)]" />
+              <span className="w-2 h-2 rounded-full bg-primary-500 shadow-[0_0_8px_rgba(13,148,136,0.4)] dark:bg-primary-400 dark:shadow-[0_0_8px_rgba(45,212,191,0.4)]" />
               Data Engineer · AI · Data Systems
             </div>
             <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.03]">
@@ -60,7 +60,7 @@ export default function Hero() {
             <div className="technical-panel p-5 sm:p-7">
               <div className="flex items-center justify-between pb-5 border-b theme-divider">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Data flow / 001</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary-600 dark:text-primary-400">Data flow / 001</p>
                   <p className="font-mono text-sm theme-text-muted mt-2">raw_data → useful_decisions</p>
                 </div>
                 <span className="status-dot"><span /> system map</span>
@@ -71,12 +71,12 @@ export default function Hero() {
                   return (
                     <div key={stage.label} className="hero-flow-row">
                       <span className="text-[10px] font-mono text-slate-500 w-6">0{index + 1}</span>
-                      <span className="hero-flow-icon"><Icon className="w-4 h-4 text-cyan-300" /></span>
+                      <span className="pipeline-icon"><Icon className="w-4 h-4 text-primary-600 dark:text-primary-400" /></span>
                       <span className="flex-1">
                         <span className="block text-[10px] uppercase tracking-[0.18em] text-slate-500">{stage.label}</span>
                         <span className="block text-sm font-semibold mt-1">{stage.tool}</span>
                       </span>
-                      {index < flow.length - 1 && <ArrowRight className="w-4 h-4 text-indigo-300/80" />}
+                      {index < flow.length - 1 && <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-600" />}
                     </div>
                   );
                 })}
@@ -91,7 +91,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <a href="#featured" className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs theme-text-muted hover:text-cyan-300 transition-colors" aria-label="Scroll to featured project">
+      <a href="#featured" className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs theme-text-muted hover:text-primary-500 transition-colors" aria-label="Scroll to featured project">
         <span>Explore the work</span>
         <ArrowDown className="w-4 h-4 animate-bounce" />
       </a>
