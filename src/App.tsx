@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 // import Services from './components/Services';
 import DataFocus from './components/DataFocus';
+import PipelineConsole from './components/PipelineConsole';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
 import Skills from './components/Skills';
@@ -19,6 +20,7 @@ export default function App() {
         <About />
         {/* <Services /> */}
         <DataFocus />
+        <PipelineConsole />
         <Projects />
         <Journey />
         <Skills />
