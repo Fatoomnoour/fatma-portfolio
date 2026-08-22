@@ -1,12 +1,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { BarChart3, Database, GitBranch, Terminal } from 'lucide-react';
+import { BarChart3, Database, Terminal } from 'lucide-react';
+import DataPipelineVisual from './DataPipelineVisual';
 
 const stack = [
-  { icon: GitBranch, title: 'Data Engineering', tools: ['Kafka', 'PySpark Structured Streaming', 'Airflow', 'dbt'] },
-  { icon: Database, title: 'Data Platforms', tools: ['BigQuery', 'PostgreSQL', 'Docker', 'Parquet'] },
-  { icon: Terminal, title: 'Programming', tools: ['Python', 'SQL', 'Pandas', 'Pytest'] },
-  { icon: BarChart3, title: 'AI & Output', tools: ['MLflow', 'XGBoost', 'Streamlit', 'Analytics'] },
+  { icon: Database, title: 'Data Engineering', tools: ['Python', 'SQL', 'PostgreSQL', 'ETL', 'Data Modeling', 'APIs', 'Docker'] },
+  { icon: BarChart3, title: 'AI & Machine Learning', tools: ['Pandas', 'NumPy', 'Scikit-learn', 'Machine Learning', 'NLP', 'Deep Learning'] },
+  { icon: Terminal, title: 'Software Engineering', tools: ['Backend Development', 'REST APIs', 'Git', 'Testing'] },
 ];
 
 export default function DataFocus() {
@@ -23,15 +23,15 @@ export default function DataFocus() {
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-12"
         >
           <div>
-            <span className="eyebrow">Engineering stack</span>
-            <h2 className="section-title mt-3">Tools with a job to do.</h2>
+            <span className="eyebrow">Technical Skills</span>
+            <h2 className="section-title mt-3">Data Engineering Capabilities.</h2>
           </div>
           <p className="theme-text-secondary max-w-xl leading-relaxed">
             A focused stack for moving data from source events to reliable transformations, analytical outputs, and explainable decisions.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-700/30 border border-slate-700/30">
+        <div className="grid sm:grid-cols-3 gap-px bg-slate-700/30 border border-slate-700/30">
           {stack.map((group, index) => {
             const Icon = group.icon;
             return (
@@ -51,6 +51,8 @@ export default function DataFocus() {
             );
           })}
         </div>
+
+        <DataPipelineVisual />
       </div>
     </section>
   );

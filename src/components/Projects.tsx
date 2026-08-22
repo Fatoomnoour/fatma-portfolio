@@ -7,28 +7,28 @@ import trainingImg from '../../public/images/project-training.jpg';
 
 const projects = [
   {
-    title: 'ABP Estimation API',
-    description: 'Flask backend API integrating a TensorFlow/Keras model for arterial blood pressure estimation from PPG and ECG signals.',
+    title: 'PharmStock Data Platform',
+    description: 'End-to-end data engineering pipeline processing pharmacy inventory events through Kafka, Spark, Airflow, and BigQuery.',
     image: platformImg,
-    tags: ['Python', 'Flask', 'TensorFlow', 'REST API'],
-    category: 'Backend / AI',
-    link: 'https://github.com/Fatoomnoour/abp-api',
+    tags: ['Kafka', 'PySpark', 'Airflow', 'BigQuery'],
+    category: 'Data Engineering',
+    link: 'https://github.com/Fatoomnoour/pharmstock-ai-data-platform',
   },
   {
-    title: 'Kids Coding Hub Curriculum Suite',
-    description: 'A structured coding curriculum covering Scratch, Python, and Web Development for young learners, with lesson plans and project-based activities.',
+    title: 'Stress Detection ML Model',
+    description: 'Machine learning pipeline for stress detection, covering data collection, cleaning, feature engineering, and model evaluation.',
     image: curriculumImg,
-    tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Development'],
+    tags: ['Python', 'Scikit-learn', 'Pandas', 'EDA'],
+    category: 'Machine Learning',
+    link: 'https://github.com/Fatoomnoour/Stress-Detection',
+  },
+  {
+    title: 'Kids Coding Hub Curriculum',
+    description: 'A structured coding curriculum covering Scratch, Python, and Web Development for young learners.',
+    image: trainingImg,
+    tags: ['Curriculum Design', 'Python', 'Education'],
     category: 'Technical Education',
     link: 'https://www.facebook.com/Kids.Coding.Hub',
-  },
-  {
-    title: 'Instructor Training Program',
-    description: 'Training-of-Trainers material for onboarding and developing coding instructors, supported by a practical session shared for review.',
-    image: trainingImg,
-    tags: ['TOT', 'Training', 'Mentorship'],
-    category: 'Leadership',
-    link: 'https://drive.google.com/file/d/1nok0UChRrc0ba9Ub0mXvQp507h0vSLon/view?usp=sharing',
   },
 ];
 

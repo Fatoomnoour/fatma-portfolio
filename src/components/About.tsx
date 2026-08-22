@@ -3,9 +3,9 @@ import { useRef } from 'react';
 import { BookOpen, Database, Lightbulb, Workflow } from 'lucide-react';
 
 const perspectives = [
-  { icon: Database, title: 'Who I am', text: 'A Computer Science graduate focused on building reliable data systems and practical software.' },
-  { icon: Workflow, title: 'What I build', text: 'Data pipelines, streaming workflows, analytical platforms, and machine-learning integrations.' },
-  { icon: Lightbulb, title: 'What I care about', text: 'Clear architecture, automation, documentation, and turning technical work into useful outcomes.' },
+  { icon: Database, title: 'Data & AI Engineering', text: 'I build real-world data pipelines and machine learning integrations that solve concrete problems.' },
+  { icon: Workflow, title: 'Backend Systems', text: 'Designing robust APIs and architectures to connect data sources with scalable applications.' },
+  { icon: Lightbulb, title: 'Problem Solving', text: 'Bringing a Computer Science foundation and instructional clarity to complex engineering challenges.' },
 ];
 
 export default function About() {
@@ -22,9 +22,9 @@ export default function About() {
           className="max-w-3xl"
         >
           <span className="eyebrow">About Fatma</span>
-          <h2 className="section-title mt-3">A builder who explains the system.</h2>
+          <h2 className="section-title mt-3">Engineering data systems that work.</h2>
           <p className="theme-text-secondary text-lg leading-relaxed mt-6">
-            My work sits at the intersection of data engineering, backend development, and technical education. I use software fundamentals to design practical systems, then document and explain them so other people can use and learn from the work.
+            As a Computer Science graduate and Data Engineer, my focus is on building scalable, real-world systems. Whether I am developing AI/ML models, constructing backend APIs, or teaching programming, I prioritize clean architecture and practical problem solving.
           </p>
         </motion.div>
 

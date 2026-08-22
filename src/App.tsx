@@ -8,7 +8,6 @@ import DataFocus from './components/DataFocus';
 import PipelineConsole from './components/PipelineConsole';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
-import Skills from './components/Skills';
 import BeyondEngineering from './components/BeyondEngineering';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -26,7 +25,6 @@ export default function App() {
         <DataFocus />
         <About />
         <Journey />
-        <Skills />
         <BeyondEngineering />
         <Contact />
         <Footer />

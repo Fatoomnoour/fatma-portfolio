@@ -29,22 +29,23 @@ export default function Hero() {
               Data Engineer · AI · Data Systems
             </div>
             <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.03]">
-              Building data systems that turn raw data into <span className="text-gradient">intelligent decisions.</span>
+              Building scalable <span className="text-gradient">data pipelines</span> &amp; AI systems.
             </h1>
             <p className="mt-7 text-lg sm:text-xl leading-relaxed theme-text-secondary max-w-xl">
-              I&apos;m Fatma Nour, a Data Engineer focused on building scalable data pipelines, analytics platforms, and AI-powered solutions.
+              Building scalable data pipelines, AI-powered solutions, and backend systems using Python, SQL, and modern data technologies.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-9">
               <a href="#featured" className="button-primary">
-                View my projects <ArrowRight className="w-4 h-4" />
+                View Projects <ArrowRight className="w-4 h-4" />
               </a>
-              <a
-                href="https://github.com/Fatoomnoour"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-secondary"
-              >
-                GitHub <ArrowRight className="w-4 h-4" />
+              <a href="https://github.com/Fatoomnoour" target="_blank" rel="noopener noreferrer" className="button-secondary">
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/fatma-nour-ai-trainer" target="_blank" rel="noopener noreferrer" className="button-secondary">
+                LinkedIn
+              </a>
+              <a href="#contact" className="button-secondary border-transparent">
+                Contact
               </a>
             </div>
             <p className="mt-7 text-xs font-mono theme-text-muted">// Data Engineer-first · systems over tool lists</p>
