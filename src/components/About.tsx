@@ -1,44 +1,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Cpu, Users, Rocket, BookOpen, Settings, Lightbulb, Database } from 'lucide-react';
+import { BookOpen, Database, Lightbulb, Workflow } from 'lucide-react';
 
-const highlights = [
-  {
-    icon: Database,
-    title: 'Data Engineering',
-    description: 'ETL pipelines with Kafka, Spark, Airflow, dbt, and BigQuery',
-    color: 'from-blue-500 to-cyan-600',
-  },
-  {
-    icon: Cpu,
-    title: 'Technical Foundation',
-    description: 'ICPC Problem Solving background + AI/Data Engineering training',
-    color: 'from-primary-500 to-primary-700',
-  },
-  {
-    icon: Users,
-    title: 'Educational Leadership',
-    description: 'TOT certified, managed 20+ instructors across multiple academies',
-    color: 'from-accent-500 to-accent-600',
-  },
-  {
-    icon: Rocket,
-    title: 'Entrepreneurial Success',
-    description: 'Founded and scaled Kids Coding Hub from scratch',
-    color: 'from-primary-500 to-accent-500',
-  },
-  {
-    icon: BookOpen,
-    title: 'Content Development',
-    description: 'Created comprehensive coding curricula for ages 6-16',
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    icon: Settings,
-    title: 'Operations Management',
-    description: 'Team leadership, quality assurance, and process optimization',
-    color: 'from-amber-500 to-orange-500',
-  },
+const perspectives = [
+  { icon: Database, title: 'Who I am', text: 'A Computer Science graduate focused on building reliable data systems and practical software.' },
+  { icon: Workflow, title: 'What I build', text: 'Data pipelines, streaming workflows, analytical platforms, and machine-learning integrations.' },
+  { icon: Lightbulb, title: 'What I care about', text: 'Clear architecture, automation, documentation, and turning technical work into useful outcomes.' },
 ];
 
 export default function About() {
@@ -46,90 +13,51 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="py-24 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/30 to-transparent" />
-
+    <section id="about" className="relative py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="max-w-3xl"
         >
-          <span className="text-primary-400 text-sm font-semibold uppercase tracking-widest">About Me</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-6">
-            Data Engineering &{' '}
-            <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              System Architecture
-            </span>
-          </h2>
+          <span className="eyebrow">About Fatma</span>
+          <h2 className="section-title mt-3">A builder who explains the system.</h2>
+          <p className="theme-text-secondary text-lg leading-relaxed mt-6">
+            My work sits at the intersection of data engineering, backend development, and technical education. I use software fundamentals to design practical systems, then document and explain them so other people can use and learn from the work.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left - Story */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="glass rounded-2xl p-8 space-y-6">
-              <p className="theme-text-secondary text-lg leading-relaxed">
-                A Computer Science graduate with a strong foundation in problem-solving and algorithms (ICPC), transitioning into building robust, scalable data systems. I specialize in designing end-to-end data pipelines, streaming architectures, and backend APIs using modern tools like Python, Kafka, and Airflow.
-              </p>
-
-              <div className="border-l-4 border-primary-500 pl-6 py-2">
-                <h3 className="text-xl font-bold flex items-center gap-2 mb-2">
-                  <Lightbulb className="w-5 h-5 text-primary-400" />
-                  What Makes Me Different
-                </h3>
-                <p className="theme-text-secondary leading-relaxed">
-                  Beyond engineering, I have 4+ years of leadership in technical education. I founded Kids Coding Hub and managed teams of instructors, proving my ability to break down complex technical concepts, organize workflows, and deliver structured results.
-                </p>
-              </div>
-
-              {/* Quick counters */}
-              <div className="grid grid-cols-3 gap-4 pt-4">
-                {[
-                  { value: 'End-to-End', label: 'Data Pipelines' },
-                  { value: '4+', label: 'Years Education Lead' },
-                  { value: '20+', label: 'Instructors Managed' },
-                ].map((stat, i) => (
-                  <div key={i} className="text-center p-4 rounded-xl theme-bg-card">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs theme-text-muted mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right - Highlights Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid sm:grid-cols-2 gap-4"
-          >
-            {highlights.map((item, i) => (
+        <div className="grid md:grid-cols-3 gap-px bg-slate-700/30 border border-slate-700/30 mt-12">
+          {perspectives.map((item, index) => {
+            const Icon = item.icon;
+            return (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 14 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="glass rounded-2xl p-5 hover:border-primary-500/30 transition-all duration-300 group hover:-translate-y-1"
+                transition={{ duration: 0.35, delay: index * 0.07 }}
+                className="bg-[#111827] p-6 min-h-48"
               >
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                  <item.icon className="w-5 h-5 text-white" />
-                </div>
-                <h4 className="font-semibold mb-1">{item.title}</h4>
-                <p className="text-sm theme-text-secondary">{item.description}</p>
+                <Icon className="w-5 h-5 text-cyan-300" />
+                <h3 className="text-lg font-semibold mt-6">{item.title}</h3>
+                <p className="theme-text-secondary text-sm leading-relaxed mt-3">{item.text}</p>
               </motion.div>
-            ))}
-          </motion.div>
+            );
+          })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: 0.22 }}
+          className="mt-10 flex flex-col md:flex-row md:items-center gap-5 p-6 border border-primary-400/15 bg-primary-400/5"
+        >
+          <BookOpen className="w-6 h-6 text-cyan-300 shrink-0" />
+          <p className="theme-text-secondary leading-relaxed">
+            <strong className="theme-text">Beyond engineering:</strong> my experience in technical education helps me break down complex concepts, structure learning workflows, and share knowledge with clarity.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

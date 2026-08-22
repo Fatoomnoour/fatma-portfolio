@@ -3,7 +3,7 @@ import { Code2, Heart, MessageCircle } from 'lucide-react';
 const footerLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
+  { label: 'Featured', href: '#featured' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -22,7 +22,7 @@ export default function Footer() {
               <span className="text-lg font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                 Fatma Nour
               </span>
-              <p className="text-xs theme-text-muted">Data Engineer & Educator</p>
+              <p className="text-xs theme-text-muted">Data Engineer | Systems Builder</p>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ export default function Footer() {
             <p className="text-sm theme-text-muted flex items-center justify-center md:justify-end gap-1">
               Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> by Fatma Nour
             </p>
-            <p className="text-xs theme-text-muted">© 2025 All rights reserved</p>
+            <p className="text-xs theme-text-muted">© 2026 Fatma Nour. All rights reserved.</p>
           </div>
         </div>
       </div>

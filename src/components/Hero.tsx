@@ -1,147 +1,99 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles, GraduationCap, Brain, Rocket } from 'lucide-react';
+import { ArrowDown, ArrowRight, BarChart3, Database, GitBranch, Radio } from 'lucide-react';
 
-// 1. استيراد صورة الخلفية برمجياً
-// هذا السطر يخبر Vite أن يعالج الصورة ويخصص لها مساراً صحيحاً عند النشر
-import heroBg from '../../public/images/hero-bg.jpg';
-import profileImg from '../../public/fatma-nour-professional-portrait.webp';
+const flow = [
+  { label: 'EVENTS', tool: 'Python', icon: Radio },
+  { label: 'INGEST', tool: 'Kafka', icon: Radio },
+  { label: 'PROCESS', tool: 'Spark', icon: GitBranch },
+  { label: 'ANALYZE', tool: 'Warehouse', icon: Database },
+  { label: 'DECIDE', tool: 'Insights', icon: BarChart3 },
+];
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
-    >
-      {/* Background - قسم الخلفية */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBg} // 2. استخدام المتغير المستورد بدلاً من النص المباشر
-          alt=""
-          className="w-full h-full object-cover opacity-30"
-        />
-        {/* طبقة تدرج لوني لجعل النص واضحاً فوق الصورة */}
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/60 to-dark-900" />
-      </div>
-
-      {/* Floating orbs - كرات ضوئية متحركة لإضافة لمسة جمالية */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/20 rounded-full blur-[100px] animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '1.5s' }} />
+    <section id="home" className="relative min-h-[78vh] flex items-center pt-24 pb-16 overflow-hidden hero-grid">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-indigo-950/70" />
+      <div className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-cyan-400/8 blur-[120px]" />
+      <div className="absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-indigo-500/8 blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
-          {/* الجانب الأيسر - المحتوى النصي */}
+        <div className="grid lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="max-w-2xl"
           >
-            {/* شارة التخصص */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary-400 text-sm font-medium mb-6"
-            >
-              <Sparkles className="w-4 h-4" />
-              Data Engineer | Data & AI Systems Builder
-            </motion.div>
-
-            {/* العنوان الرئيسي مع تأثير التدرج اللوني */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4"
-            >
-              Hi, I'm{' '}
-              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-accent-400 bg-clip-text text-transparent glow-text">
-                Fatma Nour
-              </span>
-            </motion.h1>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl theme-text-secondary font-medium mb-6"
-            >
-              Data Engineer · Systems Builder · Technical Educator
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="theme-text-secondary text-lg max-w-xl mx-auto lg:mx-0 mb-8"
-            >
-              I build scalable data pipelines, analytical systems, and intelligent data products using modern data engineering technologies.
-            </motion.p>
-
-            {/* أزرار اتخاذ إجراء (CTA) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start"
-            >
-              <a
-                href="#projects"
-                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white! font-semibold hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 hover:-translate-y-1"
-              >
-                View My Work
+            <div className="eyebrow flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(56,189,248,0.85)]" />
+              Data Engineer · AI · Data Systems
+            </div>
+            <h1 className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[-0.04em] leading-[1.03]">
+              Building data systems that turn raw data into <span className="text-gradient">intelligent decisions.</span>
+            </h1>
+            <p className="mt-7 text-lg sm:text-xl leading-relaxed theme-text-secondary max-w-xl">
+              I&apos;m Fatma Nour, a Data Engineer focused on building scalable data pipelines, analytics platforms, and AI-powered solutions.
+            </p>
+            <div className="flex flex-wrap items-center gap-4 mt-9">
+              <a href="#featured" className="button-primary">
+                View my projects <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="#contact"
-                className="px-8 py-3.5 rounded-xl border border-primary-500/30 text-primary-400 font-semibold hover:bg-primary-500/10 transition-all duration-300 hover:-translate-y-1"
+                href="https://github.com/Fatoomnoour"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button-secondary"
               >
-                Let's Talk
+                GitHub <ArrowRight className="w-4 h-4" />
               </a>
-            </motion.div>
+            </div>
+            <p className="mt-7 text-xs font-mono theme-text-muted">// Data Engineer-first · systems over tool lists</p>
           </motion.div>
 
-          {/* الجانب الأيمن - بطاقات الإحصائيات التفاعلية */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex flex-col items-center gap-6"
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="relative"
           >
-            <div className="relative w-full max-w-md">
-              {/* صورة رمزية (Avatar) بتأثير نبضي */}
-              <div className="w-72 h-96 mx-auto rounded-3xl bg-gradient-to-br from-primary-600/30 to-accent-500/30 flex items-center justify-center animate-pulse-glow overflow-hidden">
-                <div className="w-[270px] h-[364px] rounded-2xl bg-gradient-to-br from-primary-700/40 to-dark-800 flex items-center justify-center overflow-hidden">
-                  <img src={profileImg} alt="Fatma Nour" className="w-full h-full object-cover" />
+            <div className="technical-panel p-5 sm:p-7">
+              <div className="flex items-center justify-between pb-5 border-b theme-divider">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Data flow / 001</p>
+                  <p className="font-mono text-sm theme-text-muted mt-2">raw_data → useful_decisions</p>
                 </div>
+                <span className="status-dot"><span /> system map</span>
               </div>
-
-              {/* بطاقات إحصائية عائمة */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl"
-              >
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">End-to-End</div>
-                <div className="text-xs theme-text-muted">Data Pipelines Built</div>
-              </motion.div>
+              <div className="py-8 space-y-3">
+                {flow.map((stage, index) => {
+                  const Icon = stage.icon;
+                  return (
+                    <div key={stage.label} className="hero-flow-row">
+                      <span className="text-[10px] font-mono text-slate-500 w-6">0{index + 1}</span>
+                      <span className="hero-flow-icon"><Icon className="w-4 h-4 text-cyan-300" /></span>
+                      <span className="flex-1">
+                        <span className="block text-[10px] uppercase tracking-[0.18em] text-slate-500">{stage.label}</span>
+                        <span className="block text-sm font-semibold mt-1">{stage.tool}</span>
+                      </span>
+                      {index < flow.length - 1 && <ArrowRight className="w-4 h-4 text-indigo-300/80" />}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="grid grid-cols-3 gap-3 pt-5 border-t theme-divider">
+                <div><p className="text-xs text-slate-500">focus</p><p className="text-sm font-semibold mt-1">Reliability</p></div>
+                <div><p className="text-xs text-slate-500">mode</p><p className="text-sm font-semibold mt-1">Evidence-led</p></div>
+                <div><p className="text-xs text-slate-500">output</p><p className="text-sm font-semibold mt-1">Analytics</p></div>
+              </div>
             </div>
           </motion.div>
         </div>
-
-        {/* سهم التمرير لأسفل */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs theme-text-muted">Scroll Down</span>
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-            <ArrowDown className="w-5 h-5 text-primary-400" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      <a href="#featured" className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs theme-text-muted hover:text-cyan-300 transition-colors" aria-label="Scroll to featured project">
+        <span>Explore the work</span>
+        <ArrowDown className="w-4 h-4 animate-bounce" />
+      </a>
     </section>
   );
 }

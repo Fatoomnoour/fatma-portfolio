@@ -1,262 +1,106 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { ExternalLink, Eye, Layers, Tag } from 'lucide-react';
-
-// 1. استيراد الصور كملفات (هذا يضمن أن Vite سيعالجها بشكل صحيح)
-import etlImg from '../../public/images/project-etl.jpg';
+import { useRef } from 'react';
+import { ArrowUpRight, ExternalLink, Layers, Tag } from 'lucide-react';
 import curriculumImg from '../../public/images/project-curriculum.jpg';
 import platformImg from '../../public/images/project-platform.jpg';
 import trainingImg from '../../public/images/project-training.jpg';
-import gamifiedImg from '../../public/images/project-gamified.jpg';
 
 const projects = [
-  {
-    title: 'PharmStock AI Data Platform',
-    description: 'Hero Project: Designed an event-driven data platform. Implemented real-time ingestion via Kafka, PySpark Structured Streaming, and orchestrated transformations with Airflow and dbt into BigQuery.',
-    image: etlImg,
-    tags: ['Python', 'Kafka', 'Spark', 'Airflow', 'BigQuery', 'dbt'],
-    category: 'data',
-    highlights: ['Data Architecture', 'Event-Driven Ingestion', 'ETL Orchestration'],
-    link: 'https://github.com/Fatoomnoour/pharmstock-ai-data-platform',
-  },
   {
     title: 'ABP Estimation API',
     description: 'Flask backend API integrating a TensorFlow/Keras model for arterial blood pressure estimation from PPG and ECG signals.',
     image: platformImg,
     tags: ['Python', 'Flask', 'TensorFlow', 'REST API'],
-    category: 'data',
-    highlights: ['Backend API', 'ML Integration', 'Secure Config'],
+    category: 'Backend / AI',
     link: 'https://github.com/Fatoomnoour/abp-api',
   },
   {
     title: 'Kids Coding Hub Curriculum Suite',
-    description: 'Complete coding curriculum package for ages 6-16 covering Scratch, Python, and Web Development. Includes lesson plans, project templates, and assessment rubrics used across multiple academies.',
+    description: 'A structured coding curriculum covering Scratch, Python, and Web Development for young learners, with lesson plans and project-based activities.',
     image: curriculumImg,
-    tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Dev'],
-    category: 'education',
-    highlights: ['Ages 6-16', '3 Programming Tracks', 'Complete Package'],
+    tags: ['Curriculum Design', 'Scratch', 'Python', 'Web Development'],
+    category: 'Technical Education',
     link: 'https://www.facebook.com/Kids.Coding.Hub',
   },
-
   {
     title: 'Instructor Training Program',
-    description: 'Created comprehensive TOT (Training of Trainers ) program for onboarding and developing coding instructors. Scaled to support 20+ instructors across multiple locations.',
+    description: 'Training-of-Trainers material for onboarding and developing coding instructors, supported by a practical session shared for review.',
     image: trainingImg,
     tags: ['TOT', 'Training', 'Mentorship'],
-    category: 'leadership',
-    highlights: ['20+ Instructors', 'Multi-location', 'Certification'],
+    category: 'Leadership',
     link: 'https://drive.google.com/file/d/1nok0UChRrc0ba9Ub0mXvQp507h0vSLon/view?usp=sharing',
   },
-  {
-    title: 'Gamified Coding Challenges',
-    description: 'Designed fun, age-appropriate coding challenges and competitions to motivate young learners. Includes achievement systems, leaderboards, and team-based challenges.',
-    image: gamifiedImg,
-    tags: ['Gamification', 'Challenges', 'Fun Learning'],
-    category: 'education',
-    highlights: ['Achievement System', 'Leaderboards', 'Team Challenges'],
-    link: null,
-  },
 ];
-
-// ... بقية كود المكون (Projects) كما هو دون تغيير
-
-
-const categories = ['all', 'data', 'education', 'leadership'];
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const filteredProjects =
-    activeCategory === 'all'
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/30 to-transparent" />
-
+    <section id="projects" className="relative py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.45 }}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-12"
         >
-          <span className="text-primary-400 text-sm font-semibold uppercase tracking-widest">
-            Portfolio
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-            Featured{' '}
-            <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Projects
-            </span>
-          </h2>
-          <p className="theme-text-secondary max-w-xl mx-auto">
-            A showcase of data engineering solutions, educational programs, and tech initiatives I've built and led.
-          </p>
+          <div>
+            <span className="eyebrow">More projects</span>
+            <h2 className="section-title mt-3">Supporting systems and learning work.</h2>
+          </div>
+          <a href="https://github.com/Fatoomnoour" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary-300 hover:text-primary-200 transition-colors">
+            View all repositories <ArrowUpRight className="w-4 h-4" />
+          </a>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-medium capitalize transition-all duration-300 ${
-                activeCategory === cat
-                  ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white! shadow-lg shadow-primary-500/30'
-                  : 'glass theme-text-secondary hover:text-primary-400 hover:border-primary-500/30'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, i) => (
-            <motion.div
+        <div className="grid md:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
-              className="group glass rounded-2xl overflow-hidden hover:border-primary-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-500/10"
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="glass overflow-hidden group"
             >
-              {/* Project Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
-
-                {/* Overlay on hover */}
-                <motion.div
-                  initial={false}
-                  animate={{ opacity: hoveredIndex === i ? 1 : 0 }}
-                  className="absolute inset-0 bg-primary-600/20 backdrop-blur-sm flex items-center justify-center gap-4"
-                >
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-primary-500/30 transition-colors cursor-pointer"
-                    >
-                      <ExternalLink className="w-5 h-5 text-white!" />
-                    </a>
-                  )}
-                  <div className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-primary-500/30 transition-colors cursor-pointer">
-                    <Eye className="w-5 h-5 text-white!" />
-                  </div>
-                </motion.div>
-
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-lg glass text-xs font-medium text-primary-300 capitalize">
-                    <Layers className="w-3 h-3 inline mr-1" />
-                    {project.category}
-                  </span>
-                </div>
+              <div className="relative h-44 overflow-hidden bg-slate-900">
+                <img src={project.image} alt="" className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+                <span className="absolute left-5 bottom-4 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-200">
+                  <Layers className="w-3.5 h-3.5" /> {project.category}
+                </span>
               </div>
-
-              {/* Content */}
               <div className="p-6">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="text-xl font-bold group-hover:text-primary-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-shrink-0 p-1.5 rounded-lg hover:bg-primary-500/10 text-primary-400 transition-colors"
-                      title="View on GitHub"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-lg font-semibold leading-snug">{project.title}</h3>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title}`} className="shrink-0 text-primary-300 hover:text-primary-200 transition-colors">
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-                <p className="theme-text-secondary text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-
-                {/* Highlights */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.highlights.map((h, j) => (
-                    <span
-                      key={j}
-                      className="px-3 py-1 rounded-lg bg-primary-500/10 text-primary-400 text-xs font-medium"
-                    >
-                      {h}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t theme-divider">
-                  {project.tags.map((tag, j) => (
-                    <span
-                      key={j}
-                      className="flex items-center gap-1 px-2.5 py-1 rounded-md theme-bg-card theme-text-muted text-xs"
-                    >
-                      <Tag className="w-3 h-3" />
-                      {tag}
-                    </span>
-                  ))}
+                <p className="theme-text-secondary text-sm leading-relaxed mt-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {project.tags.map((tag) => <span key={tag} className="tech-chip"><Tag className="w-3 h-3 mr-1.5" />{tag}</span>)}
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* Education & Certifications */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16"
+          transition={{ duration: 0.4, delay: 0.25 }}
+          className="mt-16 pt-8 border-t theme-divider"
         >
-          <div className="glass rounded-2xl p-8">
-            <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
-              <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-                🎓
-              </span>
-              Education & Certifications
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { institution: 'Minya University', title: 'Bachelor of Computer Science', year: '2025' },
-                { institution: 'Microsoft', title: 'Azure Data Fundamentals (DP-900)', year: '2026' },
-                { institution: 'Digilians', title: 'AI & Data Engineering Training', year: '2026' },
-                { institution: 'ICPC', title: 'Problem Solving & Algorithms', year: 'University Level' },
-              ].map((cert, i) => (
-                <div
-                  key={i}
-                  className="p-4 rounded-xl theme-bg-card hover:border-primary-500/20 transition-colors border theme-border"
-                >
-                  <h4 className="font-semibold text-sm">{cert.institution}</h4>
-                  <p className="theme-text-secondary text-xs mt-1">{cert.title}</p>
-                  <span className="inline-block mt-2 px-2 py-0.5 rounded-md bg-primary-500/10 text-primary-400 text-xs font-medium">
-                    {cert.year}
-                  </span>
-                </div>
-              ))}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+              <span className="eyebrow">Certification</span>
+              <h3 className="text-xl font-semibold mt-2">Microsoft Certified: Azure Data Fundamentals</h3>
+              <p className="text-sm theme-text-secondary mt-2">DP-900 · Earned July 15, 2026</p>
             </div>
+            <a href="https://learn.microsoft.com/en-us/users/fatmaelzahraanoureldin-3362/credentials/579FE70E3F8825B1?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener noreferrer" className="button-secondary self-start sm:self-auto">
+              Verify credential <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
         </motion.div>
       </div>

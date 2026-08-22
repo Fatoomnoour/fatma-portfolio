@@ -8,7 +8,7 @@ const timeline = [
     badge: '2026 – Present',
     title: 'AI & Data Engineer Trainee',
     org: 'Digilians',
-    desc: 'Advanced AI/ML skills development, data pipeline engineering & model deployment',
+    desc: 'AI/ML development, data pipeline engineering, and practical data systems',
     icon: Brain,
     color: 'from-accent-500 to-teal-600',
     current: true,
