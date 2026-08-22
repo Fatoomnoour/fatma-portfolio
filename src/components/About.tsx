@@ -61,7 +61,7 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-6">
             Data Engineering &{' '}
             <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Technical Education
+              System Architecture
             </span>
           </h2>
         </motion.div>
@@ -91,9 +91,9 @@ export default function About() {
               {/* Quick counters */}
               <div className="grid grid-cols-3 gap-4 pt-4">
                 {[
-                  { value: '4+', label: 'Years Experience' },
-                  { value: '20+', label: 'Instructors Led' },
-                  { value: '6-16', label: 'Age Range Taught' },
+                  { value: 'End-to-End', label: 'Data Pipelines' },
+                  { value: '4+', label: 'Years Education Lead' },
+                  { value: '20+', label: 'Instructors Managed' },
                 ].map((stat, i) => (
                   <div key={i} className="text-center p-4 rounded-xl theme-bg-card">
                     <div className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">

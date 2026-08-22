@@ -45,7 +45,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-primary-400 text-sm font-medium mb-6"
             >
               <Sparkles className="w-4 h-4" />
-              Data Engineer & Technical Educator
+              Data Engineer | Data & AI Systems Builder
             </motion.div>
 
             {/* العنوان الرئيسي مع تأثير التدرج اللوني */}
@@ -67,7 +67,7 @@ export default function Hero() {
               transition={{ delay: 0.5 }}
               className="text-lg sm:text-xl theme-text-secondary font-medium mb-6"
             >
-              Data Engineer · Python Backend Developer · Technical Educator
+              Data Engineer · Systems Builder · Technical Educator
             </motion.h2>
 
             <motion.p
@@ -76,7 +76,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="theme-text-secondary text-lg max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              I build practical data systems and backend applications using Python, SQL, and modern data engineering tools.
+              I build scalable data pipelines, analytical systems, and intelligent data products using modern data engineering technologies.
             </motion.p>
 
             {/* أزرار اتخاذ إجراء (CTA) */}
@@ -122,8 +122,8 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl"
               >
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">20+</div>
-                <div className="text-xs theme-text-muted">Instructors Managed</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">End-to-End</div>
+                <div className="text-xs theme-text-muted">Data Pipelines Built</div>
               </motion.div>
             </div>
           </motion.div>

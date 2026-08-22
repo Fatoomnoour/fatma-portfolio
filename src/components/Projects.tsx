@@ -12,11 +12,11 @@ import gamifiedImg from '../../public/images/project-gamified.jpg';
 const projects = [
   {
     title: 'PharmStock AI Data Platform',
-    description: 'End-to-end pharmacy inventory data platform using Python, Kafka, PySpark Structured Streaming, BigQuery, dbt, Airflow, Docker, and Streamlit.',
+    description: 'Hero Project: Designed an event-driven data platform. Implemented real-time ingestion via Kafka, PySpark Structured Streaming, and orchestrated transformations with Airflow and dbt into BigQuery.',
     image: etlImg,
     tags: ['Python', 'Kafka', 'Spark', 'Airflow', 'BigQuery', 'dbt'],
     category: 'data',
-    highlights: ['Real-time Streaming', 'ETL Orchestration', 'Analytics Dashboard'],
+    highlights: ['Data Architecture', 'Event-Driven Ingestion', 'ETL Orchestration'],
     link: 'https://github.com/Fatoomnoour/pharmstock-ai-data-platform',
   },
   {
