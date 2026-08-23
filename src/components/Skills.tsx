@@ -1,24 +1,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Code, Wrench, Users } from 'lucide-react';
+import { BarChart3, Code, Database, Terminal, Users, Wrench } from 'lucide-react';
 
-const technicalSkills = [
-  { name: 'Data Engineering', desc: 'Kafka, PySpark, BigQuery, dbt, Airflow' },
-  { name: 'Backend & API', desc: 'Python, SQL, Flask, REST APIs' },
-  { name: 'Infrastructure', desc: 'Docker, Linux, Git, GitHub' },
-  { name: 'Analytics', desc: 'Streamlit, Pandas, Scikit-Learn' },
+const skillGroups = [
+  { icon: Database, name: 'Data Engineering', desc: 'Python, SQL, PostgreSQL, Kafka, PySpark, BigQuery, dbt, Airflow, ETL, Data Modeling, APIs, Docker' },
+  { icon: BarChart3, name: 'AI & Machine Learning', desc: 'Pandas, NumPy, Scikit-learn, Machine Learning, NLP, Deep Learning, EDA, Feature Engineering' },
+  { icon: Terminal, name: 'Backend & Software Engineering', desc: 'Backend Development, Flask, REST APIs, Git, GitHub, Linux, Testing' },
+  { icon: Code, name: 'Analytics & Delivery', desc: 'Streamlit, data storytelling, documentation, curriculum design, quality assurance' },
 ];
 
-const tools = [
-  { name: 'Python', icon: '🐍' },
-  { name: 'Kafka', icon: '⚡' },
-  { name: 'Spark', icon: '✨' },
-  { name: 'Airflow', icon: '🔄' },
-  { name: 'BigQuery', icon: '🗃️' },
-  { name: 'Docker', icon: '🐳' },
-  { name: 'SQL', icon: '📊' },
-  { name: 'Git', icon: '🔗' },
-];
+const tools = ['Python', 'SQL', 'PostgreSQL', 'Kafka', 'Spark', 'PySpark', 'Airflow', 'BigQuery', 'dbt', 'Docker', 'Pandas', 'NumPy', 'Scikit-learn', 'Flask', 'Git', 'GitHub'];
 
 const leadershipSkills = [
   { title: 'Team Leadership', description: 'Led 20+ instructors across multiple academies' },
@@ -34,117 +25,28 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="py-24 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-500/30 to-transparent" />
-
-      {/* Background glows */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/5 rounded-full blur-[150px]" />
-
+    <section id="skills" className="py-24 lg:py-28 relative" aria-labelledby="skills-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-accent-400 text-sm font-semibold uppercase tracking-widest">
-            Expertise
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-            Skills &{' '}
-            <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-              Technologies
-            </span>
-          </h2>
+        <motion.div initial={{ opacity: 0, y: 18 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.45 }} className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-12">
+          <div><span className="eyebrow">Technical toolkit</span><h2 id="skills-title" className="section-title mt-3">Skills that support the full data lifecycle.</h2></div>
+          <p className="theme-text-secondary max-w-xl leading-relaxed">A focused stack for moving data from source events to reliable transformations, analytical outputs, and explainable decisions.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Technical Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass rounded-2xl p-7"
-          >
-            <h3 className="text-lg font-bold mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-                <Code className="w-5 h-5 text-white" />
-              </div>
-              Technical Skills
-            </h3>
-            <div className="space-y-4">
-              {technicalSkills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                  className="p-3.5 rounded-xl theme-bg-card border theme-border hover:border-primary-500/20 transition-all"
-                >
-                  <h4 className="text-sm font-semibold">{skill.name}</h4>
-                  <p className="text-xs theme-text-muted mt-1">{skill.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="grid lg:grid-cols-2 gap-4">
+          {skillGroups.map((skill, index) => {
+            const Icon = skill.icon;
+            return <motion.article key={skill.name} initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.35, delay: index * 0.06 }} className="theme-bg-card border theme-border rounded-2xl p-6 card-hover"><Icon className="w-5 h-5 text-primary-700 dark:text-primary-300" aria-hidden="true" /><h3 className="font-semibold mt-5">{skill.name}</h3><p className="theme-text-secondary text-sm leading-relaxed mt-3">{skill.desc}</p></motion.article>;
+          })}
+        </div>
 
-          {/* Tools & Technologies */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="glass rounded-2xl p-7"
-          >
-            <h3 className="text-lg font-bold mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-teal-600 flex items-center justify-center">
-                <Wrench className="w-5 h-5 text-white" />
-              </div>
-              Tools & Technologies
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {tools.map((tool, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.3, delay: 0.5 + i * 0.08 }}
-                  className="flex items-center gap-3 p-3.5 rounded-xl theme-bg-card border theme-border hover:border-primary-500/20 transition-all cursor-default group"
-                >
-                  <span className="text-xl group-hover:scale-125 transition-transform">{tool.icon}</span>
-                  <span className="text-sm theme-text-secondary font-medium">{tool.name}</span>
-                </motion.div>
-              ))}
-            </div>
+        <div className="grid lg:grid-cols-3 gap-4 mt-4">
+          <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.35, delay: 0.2 }} className="theme-bg-card border theme-border rounded-2xl p-6 lg:col-span-2">
+            <h3 className="text-lg font-semibold mb-5 flex items-center gap-3"><span className="w-9 h-9 rounded-lg bg-primary-600 flex items-center justify-center"><Wrench className="w-4 h-4 text-white" aria-hidden="true" /></span>Tools & technologies</h3>
+            <div className="flex flex-wrap gap-2">{tools.map((tool) => <span key={tool} className="tech-chip">{tool}</span>)}</div>
           </motion.div>
-
-          {/* Leadership Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="glass rounded-2xl p-7"
-          >
-            <h3 className="text-lg font-bold mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                <Users className="w-5 h-5 text-white" />
-              </div>
-              Leadership & Soft Skills
-            </h3>
-            <div className="space-y-3">
-              {leadershipSkills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                  className="p-3.5 rounded-xl theme-bg-card border theme-border hover:border-primary-500/20 transition-all"
-                >
-                  <h4 className="text-sm font-semibold">{skill.title}</h4>
-                  <p className="text-xs theme-text-muted mt-1">{skill.description}</p>
-                </motion.div>
-              ))}
-            </div>
+          <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.35, delay: 0.26 }} className="theme-bg-card border theme-border rounded-2xl p-6">
+            <h3 className="text-lg font-semibold mb-5 flex items-center gap-3"><span className="w-9 h-9 rounded-lg bg-amber-600 flex items-center justify-center"><Users className="w-4 h-4 text-white" aria-hidden="true" /></span>Soft skills</h3>
+            <div className="space-y-4">{leadershipSkills.map((skill) => <div key={skill.title}><h4 className="text-sm font-semibold">{skill.title}</h4><p className="text-xs theme-text-secondary mt-1">{skill.description}</p></div>)}</div>
           </motion.div>
         </div>
       </div>

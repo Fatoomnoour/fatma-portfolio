@@ -50,7 +50,6 @@ export default function PipelineConsole() {
   const [isRunning, setIsRunning] = useState(false);
   const [simpleMode, setSimpleMode] = useState(false);
   const stage = stages[activeStage];
-  const StageIcon = stage.icon;
 
   const runPipeline = () => {
     setIsRunning(true);
