@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, CheckCircle2, Cpu, Network, Shield, Webhook } from 'lucide-react';
 const platformImg = `${import.meta.env.BASE_URL}images/project-platform.webp`;
+const platformCardImg = `${import.meta.env.BASE_URL}images/project-platform-card.webp`;
 
 const pipeline = [
   { label: 'Signals', tool: 'PPG & ECG Data', icon: Network },
@@ -25,7 +26,7 @@ export default function FeaturedProject() {
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 items-stretch">
           <motion.div initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.45 }} className="technical-panel p-6 md:p-8">
             <div className="flex items-center justify-between mb-8"><div><p className="text-xs uppercase tracking-[0.2em] text-primary-700 dark:text-primary-300">System architecture</p><p className="text-sm theme-text-muted font-mono mt-2">abp_inference_api</p></div><span className="status-dot"><span aria-hidden="true" /> evidence-led</span></div>
-            <div className="relative h-48 mb-8 rounded-xl overflow-hidden border theme-border bg-slate-100 dark:bg-slate-900"><img src={platformImg} alt="Abstract preview of the ABP estimation API architecture" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-normal" /><div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#1E293B] to-transparent" aria-hidden="true" /></div>
+            <div className="relative h-48 mb-8 rounded-xl overflow-hidden border theme-border bg-slate-100 dark:bg-slate-900"><img src={platformImg} srcSet={`${platformCardImg} 756w, ${platformImg} 1408w`} sizes="(max-width: 1024px) 100vw, 48vw" alt="Abstract preview of the ABP estimation API architecture" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-normal" /><div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#1E293B] to-transparent" aria-hidden="true" /></div>
             <div className="space-y-3" aria-label="ABP API architecture stages">{pipeline.map((stage, index) => { const Icon = stage.icon; return <div key={stage.label} className="pipeline-row"><div className="pipeline-index">0{index + 1}</div><div className="pipeline-icon"><Icon className="w-4 h-4 text-primary-700 dark:text-primary-300" aria-hidden="true" /></div><div className="min-w-0"><p className="text-xs uppercase tracking-widest theme-text-muted">{stage.label}</p><p className="font-semibold mt-1 truncate">{stage.tool}</p></div>{index < pipeline.length - 1 && <div className="pipeline-connector" aria-hidden="true" />}</div>; })}</div>
           </motion.div>
 

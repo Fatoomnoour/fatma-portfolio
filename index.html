@@ -13,7 +13,9 @@
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Fatma Nour Portfolio" />
@@ -36,20 +38,40 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Fatma Nour",
-        "jobTitle": "Junior Data Engineer",
-        "description": "Junior Data Engineer building ETL pipelines, backend APIs, and AI-enabled data solutions.",
-        "url": "https://fatoomnoour.github.io/fatma-portfolio/",
-        "image": "https://fatoomnoour.github.io/fatma-portfolio/fatma-nour-professional-portrait.webp",
-        "mainEntityOfPage": "https://fatoomnoour.github.io/fatma-portfolio/",
-        "email": "mailto:fatmanour048@gmail.com",
-        "address": { "@type": "PostalAddress", "addressCountry": "Egypt" },
-        "sameAs": [
-          "https://github.com/Fatoomnoour",
-          "https://www.linkedin.com/in/fatma-nour-ai-trainer"
-        ],
-        "knowsAbout": ["Data Engineering", "ETL", "Python", "SQL", "Apache Kafka", "Apache Spark", "Apache Airflow", "Machine Learning", "Backend APIs"]
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://fatoomnoour.github.io/fatma-portfolio/#profilepage",
+            "url": "https://fatoomnoour.github.io/fatma-portfolio/",
+            "name": "Fatma Nour Portfolio",
+            "dateModified": "2026-08-23",
+            "mainEntity": { "@id": "https://fatoomnoour.github.io/fatma-portfolio/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://fatoomnoour.github.io/fatma-portfolio/#person",
+            "name": "Fatma Nour",
+            "jobTitle": "Junior Data Engineer",
+            "description": "Junior Data Engineer building ETL pipelines, backend APIs, and AI-enabled data solutions.",
+            "url": "https://fatoomnoour.github.io/fatma-portfolio/",
+            "image": "https://fatoomnoour.github.io/fatma-portfolio/fatma-nour-professional-portrait.webp",
+            "mainEntityOfPage": { "@id": "https://fatoomnoour.github.io/fatma-portfolio/#profilepage" },
+            "email": "mailto:fatmanour048@gmail.com",
+            "address": { "@type": "PostalAddress", "addressCountry": "Egypt" },
+            "sameAs": [
+              "https://github.com/Fatoomnoour",
+              "https://www.linkedin.com/in/fatma-nour-ai-trainer"
+            ],
+            "knowsAbout": ["Data Engineering", "ETL", "Python", "SQL", "Apache Kafka", "Apache Spark", "Apache Airflow", "Machine Learning", "Backend APIs"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://fatoomnoour.github.io/fatma-portfolio/#website",
+            "url": "https://fatoomnoour.github.io/fatma-portfolio/",
+            "name": "Fatma Nour Portfolio",
+            "publisher": { "@id": "https://fatoomnoour.github.io/fatma-portfolio/#person" }
+          }
+        ]
       }
     </script>
   </head>

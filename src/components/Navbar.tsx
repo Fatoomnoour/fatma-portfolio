@@ -74,7 +74,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3 shrink-0">
+          <div className="hidden xl:flex items-center gap-3 shrink-0">
             {externalLinks.map(({ href, label }) => (
               <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium theme-text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors rounded-md">
                 {label} <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />

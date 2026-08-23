@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ArrowUpRight, ExternalLink, Layers, Tag } from 'lucide-react';
 const curriculumImg = `${import.meta.env.BASE_URL}images/project-curriculum.webp`;
 const platformImg = `${import.meta.env.BASE_URL}images/project-platform.webp`;
+const platformCardImg = `${import.meta.env.BASE_URL}images/project-platform-card.webp`;
 const trainingImg = `${import.meta.env.BASE_URL}images/project-training.webp`;
 
 type ProjectCategory = 'Data Engineering' | 'AI & Machine Learning' | 'Backend/API' | 'Education & Training';
@@ -19,6 +20,7 @@ type Project = {
   tags: string[];
   link: string;
   demo?: string;
+  cardImage?: string;
 };
 
 const projects: Project[] = [
@@ -31,6 +33,7 @@ const projects: Project[] = [
     contribution: 'Mapped the pipeline stages, implemented transformations, and documented the flow from source events to analytics.',
     outcome: 'A portfolio-ready architecture demonstrating scalable ingestion, distributed processing, orchestration, and serving.',
     image: platformImg,
+    cardImage: platformCardImg,
     tags: ['Kafka', 'PySpark', 'Airflow', 'BigQuery', 'ETL'],
     link: 'https://github.com/Fatoomnoour/pharmstock-ai-data-platform',
   },
@@ -88,7 +91,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.article key={project.title} initial={{ opacity: 0, y: 16 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: index * 0.08 }} className="theme-bg-card border theme-border rounded-2xl overflow-hidden group card-hover flex flex-col">
               <div className="relative h-44 overflow-hidden bg-slate-900">
-                <img src={project.image} alt={`${project.title} project preview`} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-[1.03] transition-all duration-300" />
+                <img src={project.cardImage ?? project.image} srcSet={project.cardImage ? `${project.cardImage} 756w, ${project.image} 1408w` : undefined} sizes="(max-width: 1024px) 100vw, 33vw" alt={`${project.title} project preview`} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-[1.03] transition-all duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" aria-hidden="true" />
                 <span className="absolute left-5 bottom-4 inline-flex items-center gap-1.5 text-xs font-medium text-cyan-100"><Layers className="w-3.5 h-3.5" aria-hidden="true" /> {project.category}</span>
               </div>

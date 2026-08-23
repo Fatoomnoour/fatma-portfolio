@@ -81,7 +81,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      <a href="#highlights" className="mt-8 sm:mt-10 mx-auto relative z-10 flex flex-col items-center gap-2 text-xs theme-text-muted hover:text-primary-700 dark:hover:text-primary-300 transition-colors rounded-md" aria-label="Scroll to highlights">
+      <a href="#highlights" className="mt-8 sm:mt-10 mx-auto relative z-10 flex flex-col items-center gap-2 text-xs theme-text-muted hover:text-primary-700 dark:hover:text-primary-300 transition-colors rounded-md" aria-label="Explore the work">
         <span>Explore the work</span><ArrowDown className="w-4 h-4" aria-hidden="true" />
       </a>
     </section>
